@@ -1,0 +1,7 @@
+h1= current_user.email
+
+.card-panel.teal.lighten-2.white-text
+  - if current_user
+    h2 Some stuff here
+
+    =link_to 'Create Tour', new_tour_path, class: 'waves-effect waves-light btn'
