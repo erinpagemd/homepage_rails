@@ -16,18 +16,30 @@
 
     <ul id="slide-out" class="sidenav">
       <li><div class="user-view">
-        <div class="background">
-          <img src="images/office.jpg">
-        </div>
-        <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
-        <a href="#name"><span class="white-text name">John Doe</span></a>
-        <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
+        <a href="#name"><span class="teal-text name">John Doe</span></a>
+        <a href="#email"><span class="teal-text email">jdandturk@gmail.com</span></a>
       </div></li>
-      <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-      <li><a href="#!">Second Link</a></li>
+      <% unless current_user %>
+        <%= link_to 'Register', new_user_registration_path, class: 'waves-effect waves-light btn' %>
+        <%= link_to 'Sign in', new_user_session_path, class: 'waves-effect waves-light btn' %>
+      <% end %>
+      <% if current_user %>
+        <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'waves-effect waves-light btn' %>
+      <% end %>
+      <li><a href="/dashboard/index"><i class="material-icons">dashboard</i>Dashboard</a></li>
+      <li><a class="subheader">Money Makers</a></li>
+      <li><a href="/tours"><i class="material-icons">event_seat</i>Tours</a></li>
+      <li><a class="subheader">Rental Equipment</a></li>
+      <li><a href="#!"><i class="material-icons">wc</i>Paddleboards</a></li>
+      <li><a href="#!"><i class="material-icons">directions_boat</i>Kayaks</a></li>
+      <li><a href="#!"><i class="material-icons">flight_land</i>Life Vests</a></li>
+      <li><a href="#!"><i class="material-icons">rowing</i>Paddles</a></li>
+      <li><a class="subheader">Human Resources</a></li>
+      <li><a href="#!"><i class="material-icons">star</i>Certifications</a></li>
+      <li><a href="#!"><i class="material-icons">group</i>Employees</a></li>
       <li><div class="divider"></div></li>
-      <li><a class="subheader">Subheader</a></li>
-      <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+      <li><a href="/"><i class="material-icons">website</i>Public Site</a></li>
+      <li><a class="waves-effect" href="#!"><i class="material-icons">business_center</i>Business Plan</a></li>
     </ul>
     <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
