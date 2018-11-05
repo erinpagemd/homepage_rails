@@ -1,0 +1,13 @@
+.home
+  h1 Lone Star Paddle Co.
+  - unless current_user
+    =link_to 'Register', new_user_registration_path, class: 'waves-effect waves-light btn'
+    =link_to 'Sign in', new_user_session_path, class: 'waves-effect waves-light btn'
+  - if current_user
+    =link_to 'Sign out', destroy_user_session_path, class: 'waves-effect waves-light btn'
+
+  .card-panel.teal.lighten-2.white-text
+    - if current_user
+      h2 Some stuff here
+
+      =link_to 'Create Tour', new_tour_path, class: 'waves-effect waves-light btn'
