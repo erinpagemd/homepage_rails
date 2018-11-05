@@ -1,0 +1,21 @@
+.container
+  p#notice= notice
+
+  h1 Tours
+  = link_to new_tour_path
+    i.material-icons add
+
+  table.highlight.responsive-table
+    thead
+      tr
+        th Name
+        th{ colspan="2" }
+
+    tbody
+      - @tours.each do |tour|
+        tr
+          td= link_to tour.name, tour
+          td= link_to edit_tour_path(tour)
+            i.material-icons edit
+          td= link_to tour, method: :delete, data: { confirm: 'Are you sure?' }
+            i.material-icons delete

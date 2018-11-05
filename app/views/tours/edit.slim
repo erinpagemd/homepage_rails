@@ -1,0 +1,7 @@
+.container
+  h1= "Editing Tour: #{@tour.name}"
+
+  =render 'form', tour: @tour
+
+  = link_to 'Show', @tour
+  = link_to 'Back', tours_path
