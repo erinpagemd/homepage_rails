@@ -1,7 +1,8 @@
-h1= current_user.email
-
+h1 Dashboard
 .card-panel.teal.lighten-2.white-text
   - if current_user
-    h2 Some stuff here
-
-    =link_to 'Create Tour', new_tour_path, class: 'waves-effect waves-light btn'
+    h2 Tour stuff
+    = link_to new_tour_path, class: 'btn-floating btn-large waves-effect waves-light red'
+      i.material-icons add
+    - @tours.each do |tour|
+      p= tour.name
