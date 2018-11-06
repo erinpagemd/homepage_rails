@@ -15,7 +15,16 @@
       - @tours.each do |tour|
         tr
           td= link_to tour.name, tour
-          td= link_to edit_tour_path(tour)
-            i.material-icons edit
+          td
+            a.waves-effect.waves-light.modal-trigger  { href="#editModal#{tour.id}" }
+              i.material-icons edit
           td= link_to tour, method: :delete, data: { confirm: 'Are you sure?' }
             i.material-icons delete
+
+
+  - @tours.each do |tour|
+    .modal{ id="editModal#{tour.id}" }
+      .modal-content
+        h3= "Editing: #{tour.name}"
+
+        = render 'form', tour: tour
