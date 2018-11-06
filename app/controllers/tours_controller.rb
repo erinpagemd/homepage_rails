@@ -24,10 +24,10 @@ class ToursController < ApplicationController
 
     respond_to do |format|
       if @tour.save
-        format.html { redirect_to @tour, notice: 'Tour was successfully created.' }
+        format.html { redirect_to @tours, notice: 'Tour was successfully created.' }
         format.json { render :show, status: :created, location: @tour }
       else
-        format.html { render :new }
+        format.html { render :index }
         format.json { render json: @tour.errors, status: :unprocessable_entity }
       end
     end
@@ -36,12 +36,13 @@ class ToursController < ApplicationController
   # PATCH/PUT /tours/1
   # PATCH/PUT /tours/1.json
   def update
+    @tours = Tour.all
     respond_to do |format|
       if @tour.update(tour_params)
-        format.html { redirect_to @tour, notice: 'Tour was successfully updated.' }
-        format.json { render :show, status: :ok, location: @tour }
+        format.html { render :index, notice: 'Tour was successfully updated.' }
+        format.json { render :index, status: :ok, location: @tours }
       else
-        format.html { render :edit }
+        format.html { render :index }
         format.json { render json: @tour.errors, status: :unprocessable_entity }
       end
     end
