@@ -17,10 +17,6 @@ class ToursController < ApplicationController
     @tour = Tour.new
   end
 
-  # GET /tours/1/edit
-  def edit
-  end
-
   # POST /tours
   # POST /tours.json
   def create
